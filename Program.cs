@@ -65,3 +65,37 @@ switch (sonlar)
         }
         break;
 }
+// 4-topshiriq
+Console.WriteLine("\n < BERILGAN MATNNING SIMVOL SONINI HISOBLASH > ");
+
+Console.Write("Istalgan matn kiriting: ");
+string text= Console.ReadLine();
+char[] symbols = new char[text.Length];
+int[] counts = new int[text.Length];
+int Count = 0;
+        
+foreach (char c in text)
+{
+    bool found = false;
+    for (int i = 0; i < Count; i++)
+    {
+        if (symbols[i] == c)
+        {
+            counts[i]++;
+            found = true;
+            break;
+        }
+    }
+            
+    if (!found)
+    {
+        symbols[Count] = c;
+        counts[Count] = 1;
+        Count++;
+    }
+}
+        
+for (int i = 0; i < Count; i++)
+{
+    Console.WriteLine($"'{symbols[i]}': {counts[i]} marta");
+}
